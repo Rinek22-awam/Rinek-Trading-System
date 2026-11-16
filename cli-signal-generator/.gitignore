@@ -1,0 +1,22 @@
+# Rahasia dan data pribadi (tidak pernah di-push)
+.env
+*.session*
+data/
+logs/
+jurnal/
+
+# Setelan pribadi: dibuat otomatis dari contohnya saat program pertama jalan
+sistem/config.yaml
+sistem/mcp-tradingview.json
+
+# Skill milik pemakai. Yang ikut repo hanya format SETUP dan panduan skill.
+skill/*/
+!skill/panduan-skill/
+
+# Catatan perencanaan pribadi
+RENCANA_PENGEMBANGAN.md
+
+# Sisa Python dan tes
+__pycache__/
+.pytest_cache/
+*.pyc

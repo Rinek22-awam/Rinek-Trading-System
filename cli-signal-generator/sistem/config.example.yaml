@@ -1,0 +1,49 @@
+claude:
+  # Bawaan global. Ubah per skill lewat Skill & analisa → Daftar skill.
+  model: "sonnet"   # Nama singkat (fable/opus/sonnet/haiku) = otomatis versi terbaru. Nama lengkap (misal claude-opus-5-5) = kunci versi.
+  effort: ""      # low / medium / high / xhigh / max. Kosong = bawaan Claude Code. Makin tinggi makin dalam, makin lama dan boros kuota.
+  pilihan_model: [fable, opus, sonnet, haiku]   # Daftar pilihan model untuk semua skill.
+  batas_waktu_menit: 10
+  jam_skill: ["09:00", "14:00", "20:00"]  # WIB untuk mode Jam tertentu yang ikut global.
+  # Hanya tool di dua daftar izin ini yang dimuat saat analisa (hemat token: semua tool ~36,9 rb token per
+  # panggilan, daftar izin ~8,3 rb; juga lebih aman). Hapus kuncinya = semua tool diizinkan lagi.
+  # Atur lewat MENU > Skill & analisa > Tool yang diizinkan.
+  tools_bawaan: [WebSearch, WebFetch]   # Tool bawaan Claude Code. Cari berita/kalender.
+  tools_tradingview:   # Nama pendek tool MCP TradingView (tanpa mcp__tradingview__).
+    - tv_health_check       # Cek chart tersambung (wajib di awal).
+    - chart_get_state       # Simbol dan timeframe sekarang.
+    - chart_set_symbol      # Ganti simbol (XAUUSD, DXY, US10Y).
+    - chart_set_timeframe   # Ganti timeframe.
+    - data_get_ohlcv        # Data candle.
+    - quote_get             # Harga sekarang.
+    - data_get_pine_boxes   # Zona FVG/OB dari ICT.
+    - data_get_pine_labels  # Label ICT (OB+, OB-, dll).
+    - data_get_pine_lines   # Garis level dari indikator.
+    - data_get_pine_tables  # Tabel indikator (UvH).
+    - tab_list              # Lihat tab chart di TradingView.
+    - tab_switch            # Pindah tab chart.
+    - capture_screenshot    # Gambar chart (mahal token, dipakai kalau perlu).
+  # Selalu ditolak, juga kalau ada di daftar izin. Ini lapisan tambahan.
+  tools_ditolak:
+    - mcp__tradingview__ui_evaluate  # Selalu ditolak, sekalipun dihapus dari daftar.
+    - mcp__tradingview__tv_update    # Notifikasi update TradingView bisa jadi alarm palsu.
+    - mcp__tradingview__tv_launch    # Generator membuka TradingView sendiri lewat skrip peluncur.
+
+tradingview:
+  # TradingView Desktop dibuka dengan CDP port 9222.
+  # Kalau chart belum terbuka saat analisa, program menjalankan skrip ini dulu.
+  peluncur: ""  # Kosong = folder Dokumen\tradingview-mcp\scripts\launch_tv_debug.bat. Atur lewat menu TradingView.
+  tunggu_detik: 90  # Lama menunggu chart siap setelah TradingView dibuka.
+
+telegram:
+  pengirim: bot  # bot = token bot baru, akun = akun Telegram pribadi.
+  kotak_masuk: ""  # ID channel kotak masuk (angka -100...).
+  laporan_ke: ""   # ID chat pribadimu. Kosongkan = dideteksi otomatis (tekan Start di bot generator dulu).
+  kirim_analisa_ke_pm: true  # true = hasil analisa lengkap (plus blok SETUP) dikirim ke chat pribadi.
+
+
+pesan_rutin:
+  # Tanda masih hidup: pesan "CLI masih nyala" ke chat pribadi selama generator jalan terus.
+  # Pesan tidak datang di jam biasanya = generator mati. Atur lewat MENU > Telegram > Pesan rutin.
+  nyala: true
+  jam: ["07:00"]  # WIB. Boleh lebih dari satu, misal ["07:00", "19:00"].

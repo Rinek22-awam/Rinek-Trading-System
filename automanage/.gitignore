@@ -1,0 +1,19 @@
+.env
+*.ex5
+__pycache__/
+*.pyc
+logs/
+*.session
+*.session-journal
+.pytest_cache/
+data/
+.desktop-deps/
+build/
+dist/
+/Dashboard Bot.exe
+/Dashboard Bot.lnk
+sumber.yaml
+akun-bybit.env
+akun-mt5.env
+sumber/
+/Automanage-MT5-Bybit-untuk-dibagikan.rar

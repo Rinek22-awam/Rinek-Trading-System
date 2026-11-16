@@ -1,0 +1,27 @@
+# Setelan UNIVERSAL MT5: berlaku untuk semua sumber yang ke MT5, plus bagian pembaca.
+# SOP (risiko, TP, BE, pengaman) ada per sumber: MENU > Sumber sinyal.
+
+akun:
+  hanya_demo: false             # true membatasi bot ke akun demo
+
+simbol:                       # nama di setup -> nama di broker
+  XAUUSD: XAUUSD
+  GOLD: XAUUSD
+  EURUSD: EURUSD
+  GBPUSD: GBPUSD
+  USDJPY: USDJPY
+  BTCUSD: BTCUSD
+
+mt5:
+  magic: 260101                 # penanda order milik bot
+  deviasi_poin: 20              # toleransi slippage order market
+
+bot:
+  interval_detik: 5.0           # seberapa sering posisi dicek
+  jurnal: "data/jurnal.db"
+
+pembaca:
+  simbol_dari_harga:           # setup tanpa nama simbol: ditebak dari besar harganya
+    - {simbol: XAUUSD, min: 1000, max: 10000, alias: [GOLD, XAU]}
+    - {simbol: BTCUSD, min: 10000, max: 1000000, alias: [BTC, BTCUSDT]}
+  kata_highrisk: ["high risk", highrisk, "hi risk", "risiko tinggi", "resiko tinggi"]  # kata yang membuat setup ditandai highrisk

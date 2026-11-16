@@ -1,0 +1,14 @@
+# Setelan UNIVERSAL Bybit: berlaku untuk semua sumber yang ke Bybit.
+# SOP (risiko, leverage, TP, BE, pengaman) ada per sumber: MENU > Sumber sinyal.
+# Akun dan API key ada di akun-bybit.env (MENU > Setelan universal > Bybit).
+# Tanpa daftar pair: koin dicari dan dicocokkan sendiri di Bybit USDT Perpetual.
+
+akun:
+  hanya_demo: false             # true membatasi bot ke akun demo/testnet
+
+bybit:
+  nilai_posisi_maks_usdt: 1000  # batas nilai satu posisi (qty x harga)
+
+bot:
+  interval_detik: 15.0          # seberapa sering posisi dicek
+  jurnal: "data/jurnal-bybit.db"
